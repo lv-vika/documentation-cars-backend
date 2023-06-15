@@ -32,7 +32,7 @@ export default class AuthController {
       } else {
         this.verifyClient(client, password);
       }
-
+    //generate a jwt token for authefication purposes using secret key stored in the config
       const token = jwt.sign({ id: client.id, email, password }, authConfig.secret, { expiresIn: '1d' });
       res.send({ token });
     } catch (e) {
